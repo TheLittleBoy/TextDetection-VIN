@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Firebase.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    //初始化谷歌Firebase服务。 更多详细信息请参考官网：https://firebase.google.cn/docs/ml-kit/ios/recognize-text
+    //初始化需要用到GoogleService-Info.plist配置文件。‼️此项目仅仅演示离线识别功能，所以文件里边的key都是随便写的‼️
+    [FIRApp configure];
+    
     return YES;
 }
 

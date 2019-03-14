@@ -13,6 +13,9 @@
 		041D18952239F0A50001166A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041D18942239F0A50001166A /* Assets.xcassets */; };
 		041D18982239F0A50001166A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041D18962239F0A50001166A /* LaunchScreen.storyboard */; };
 		041D189B2239F0A50001166A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 041D189A2239F0A50001166A /* main.m */; };
+		04D1F5052239F398009B50F6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04D1F5042239F398009B50F6 /* GoogleService-Info.plist */; };
+		04D1F5082239F66C009B50F6 /* VINDetectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D1F5072239F66C009B50F6 /* VINDetectionViewController.m */; };
+		04D1F50A2239F69A009B50F6 /* scanSuccess.wav in Resources */ = {isa = PBXBuildFile; fileRef = 04D1F5092239F69A009B50F6 /* scanSuccess.wav */; };
 		5F730565EFCBCF8EDEF0A75B /* libPods-TextDetection-VIN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CD719AB921480B6439C490 /* libPods-TextDetection-VIN.a */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +30,10 @@
 		041D18972239F0A50001166A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041D18992239F0A50001166A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041D189A2239F0A50001166A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		04D1F5042239F398009B50F6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04D1F5062239F66C009B50F6 /* VINDetectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VINDetectionViewController.h; sourceTree = "<group>"; };
+		04D1F5072239F66C009B50F6 /* VINDetectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VINDetectionViewController.m; sourceTree = "<group>"; };
+		04D1F5092239F69A009B50F6 /* scanSuccess.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = scanSuccess.wav; sourceTree = "<group>"; };
 		19CD719AB921480B6439C490 /* libPods-TextDetection-VIN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TextDetection-VIN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		263498DB012BDE1580A0B8F5 /* Pods-TextDetection-VIN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextDetection-VIN.release.xcconfig"; path = "Target Support Files/Pods-TextDetection-VIN/Pods-TextDetection-VIN.release.xcconfig"; sourceTree = "<group>"; };
 		BA3754E99A1E7EDA1E60DA70 /* Pods-TextDetection-VIN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextDetection-VIN.debug.xcconfig"; path = "Target Support Files/Pods-TextDetection-VIN/Pods-TextDetection-VIN.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,9 +76,13 @@
 				041D188C2239F0A40001166A /* AppDelegate.m */,
 				041D188E2239F0A40001166A /* ViewController.h */,
 				041D188F2239F0A40001166A /* ViewController.m */,
+				04D1F5062239F66C009B50F6 /* VINDetectionViewController.h */,
+				04D1F5072239F66C009B50F6 /* VINDetectionViewController.m */,
+				04D1F5042239F398009B50F6 /* GoogleService-Info.plist */,
 				041D18912239F0A40001166A /* Main.storyboard */,
 				041D18942239F0A50001166A /* Assets.xcassets */,
 				041D18962239F0A50001166A /* LaunchScreen.storyboard */,
+				04D1F5092239F69A009B50F6 /* scanSuccess.wav */,
 				041D18992239F0A50001166A /* Info.plist */,
 				041D189A2239F0A50001166A /* main.m */,
 			);
@@ -84,7 +95,6 @@
 				BA3754E99A1E7EDA1E60DA70 /* Pods-TextDetection-VIN.debug.xcconfig */,
 				263498DB012BDE1580A0B8F5 /* Pods-TextDetection-VIN.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -155,7 +165,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04D1F50A2239F69A009B50F6 /* scanSuccess.wav in Resources */,
 				041D18982239F0A50001166A /* LaunchScreen.storyboard in Resources */,
+				04D1F5052239F398009B50F6 /* GoogleService-Info.plist in Resources */,
 				041D18952239F0A50001166A /* Assets.xcassets in Resources */,
 				041D18932239F0A40001166A /* Main.storyboard in Resources */,
 			);
@@ -217,6 +229,7 @@
 			files = (
 				041D18902239F0A40001166A /* ViewController.m in Sources */,
 				041D189B2239F0A50001166A /* main.m in Sources */,
+				04D1F5082239F66C009B50F6 /* VINDetectionViewController.m in Sources */,
 				041D188D2239F0A40001166A /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
