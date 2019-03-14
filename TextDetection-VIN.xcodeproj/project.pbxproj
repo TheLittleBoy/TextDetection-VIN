@@ -13,6 +13,7 @@
 		041D18952239F0A50001166A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041D18942239F0A50001166A /* Assets.xcassets */; };
 		041D18982239F0A50001166A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041D18962239F0A50001166A /* LaunchScreen.storyboard */; };
 		041D189B2239F0A50001166A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 041D189A2239F0A50001166A /* main.m */; };
+		5F730565EFCBCF8EDEF0A75B /* libPods-TextDetection-VIN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CD719AB921480B6439C490 /* libPods-TextDetection-VIN.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		041D18972239F0A50001166A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		041D18992239F0A50001166A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		041D189A2239F0A50001166A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		19CD719AB921480B6439C490 /* libPods-TextDetection-VIN.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TextDetection-VIN.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		263498DB012BDE1580A0B8F5 /* Pods-TextDetection-VIN.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextDetection-VIN.release.xcconfig"; path = "Target Support Files/Pods-TextDetection-VIN/Pods-TextDetection-VIN.release.xcconfig"; sourceTree = "<group>"; };
+		BA3754E99A1E7EDA1E60DA70 /* Pods-TextDetection-VIN.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextDetection-VIN.debug.xcconfig"; path = "Target Support Files/Pods-TextDetection-VIN/Pods-TextDetection-VIN.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F730565EFCBCF8EDEF0A75B /* libPods-TextDetection-VIN.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				041D188A2239F0A40001166A /* TextDetection-VIN */,
 				041D18892239F0A40001166A /* Products */,
+				DA4F6ECD5B746FB562016B8D /* Pods */,
+				F413ACBBA2BE8AF827E26B7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +78,24 @@
 			path = "TextDetection-VIN";
 			sourceTree = "<group>";
 		};
+		DA4F6ECD5B746FB562016B8D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				BA3754E99A1E7EDA1E60DA70 /* Pods-TextDetection-VIN.debug.xcconfig */,
+				263498DB012BDE1580A0B8F5 /* Pods-TextDetection-VIN.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		F413ACBBA2BE8AF827E26B7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19CD719AB921480B6439C490 /* libPods-TextDetection-VIN.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -78,9 +103,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 041D189E2239F0A50001166A /* Build configuration list for PBXNativeTarget "TextDetection-VIN" */;
 			buildPhases = (
+				6D39A1FE8781361CBC6C1144 /* [CP] Check Pods Manifest.lock */,
 				041D18842239F0A40001166A /* Sources */,
 				041D18852239F0A40001166A /* Frameworks */,
 				041D18862239F0A40001166A /* Resources */,
+				560421967193B60C777B65B4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,6 +162,53 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		560421967193B60C777B65B4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TextDetection-VIN/Pods-TextDetection-VIN-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleMobileVision/GoogleMVTextDetectorResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMVTextDetectorResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TextDetection-VIN/Pods-TextDetection-VIN-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D39A1FE8781361CBC6C1144 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TextDetection-VIN-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		041D18842239F0A40001166A /* Sources */ = {
@@ -283,6 +357,7 @@
 		};
 		041D189F2239F0A50001166A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA3754E99A1E7EDA1E60DA70 /* Pods-TextDetection-VIN.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +375,7 @@
 		};
 		041D18A02239F0A50001166A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 263498DB012BDE1580A0B8F5 /* Pods-TextDetection-VIN.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
