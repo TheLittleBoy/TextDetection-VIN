@@ -43,8 +43,8 @@
     self.navigationController.navigationBar.translucent = NO;
 
     //给个默认值
-    self.m_width = (SCREEN_WIDTH - 20);
-    self.m_higth = 50.0;
+    self.m_width = (SCREEN_WIDTH - 40);
+    self.m_higth = 80.0;
     recognizedText = @"";
     
     //初始化识别器
@@ -157,55 +157,56 @@
     CAShapeLayer *fillLayer = [CAShapeLayer layer];
     fillLayer.path = path.CGPath;
     fillLayer.fillRule = kCAFillRuleEvenOdd;
-    fillLayer.opacity = 0.4;//透明度
-    fillLayer.backgroundColor = [UIColor lightGrayColor].CGColor;
+    fillLayer.opacity = 0.6;//透明度
+    fillLayer.backgroundColor = [UIColor blackColor].CGColor;
     [self.view.layer addSublayer:fillLayer];
     
     // 边界校准线
-    const CGFloat lineWidth = 2;
+    CGFloat lineWidth = 2;
+    CGFloat lineLength = 20;
     UIBezierPath *linePath = [UIBezierPath bezierPathWithRect:CGRectMake(cutRect.origin.x - lineWidth,
                                                                          cutRect.origin.y - lineWidth,
-                                                                         cutRect.size.width / 4.0,
+                                                                         lineLength,
                                                                          lineWidth)];
     //追加路径
     [linePath appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(cutRect.origin.x - lineWidth,
                                                                      cutRect.origin.y - lineWidth,
                                                                      lineWidth,
-                                                                     cutRect.size.height / 4.0)]];
+                                                                     lineLength)]];
     
-    [linePath appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(cutRect.origin.x + cutRect.size.width - cutRect.size.width / 4.0 + lineWidth,
+    [linePath appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(cutRect.origin.x + cutRect.size.width - lineLength + lineWidth,
                                                                      cutRect.origin.y - lineWidth,
-                                                                     cutRect.size.width / 4.0,
+                                                                     lineLength,
                                                                      lineWidth)]];
     [linePath appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(cutRect.origin.x + cutRect.size.width ,
                                                                      cutRect.origin.y - lineWidth,
                                                                      lineWidth,
-                                                                     cutRect.size.height / 4.0)]];
+                                                                     lineLength)]];
     
     [linePath appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(cutRect.origin.x - lineWidth,
-                                                                     cutRect.origin.y + cutRect.size.height - cutRect.size.height / 4.0 + lineWidth,
+                                                                     cutRect.origin.y + cutRect.size.height - lineLength + lineWidth,
                                                                      lineWidth,
-                                                                     cutRect.size.height / 4.0)]];
+                                                                     lineLength)]];
     [linePath appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(cutRect.origin.x - lineWidth,
                                                                      cutRect.origin.y + cutRect.size.height,
-                                                                     cutRect.size.width / 4.0,
+                                                                     lineLength,
                                                                      lineWidth)]];
     
     [linePath appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(cutRect.origin.x + cutRect.size.width,
-                                                                     cutRect.origin.y + cutRect.size.height - cutRect.size.height / 4.0 + lineWidth,
+                                                                     cutRect.origin.y + cutRect.size.height - lineLength + lineWidth,
                                                                      lineWidth,
-                                                                     cutRect.size.height / 4.0)]];
-    [linePath appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(cutRect.origin.x + cutRect.size.width - cutRect.size.width / 4.0 + lineWidth,
+                                                                     lineLength)]];
+    [linePath appendPath:[UIBezierPath bezierPathWithRect:CGRectMake(cutRect.origin.x + cutRect.size.width - lineLength + lineWidth,
                                                                      cutRect.origin.y + cutRect.size.height,
-                                                                     cutRect.size.width / 4.0,
+                                                                     lineLength,
                                                                      lineWidth)]];
     
     CAShapeLayer *pathLayer = [CAShapeLayer layer];
     pathLayer.path = linePath.CGPath;// 从贝塞尔曲线获取到形状
-    pathLayer.fillColor = [UIColor orangeColor].CGColor; // 闭环填充的颜色
+    pathLayer.fillColor = [UIColor colorWithRed:0. green:0.655 blue:0.905 alpha:1.0].CGColor; // 闭环填充的颜色
     [self.view.layer addSublayer:pathLayer];
     
-    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, m_scanViewY - 34, SCREEN_WIDTH, 25)];
+    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, m_scanViewY - 40, SCREEN_WIDTH, 25)];
     [self.view addSubview:tipLabel];
     tipLabel.text = @"请对准VIN码进行扫描";
     tipLabel.textAlignment = NSTextAlignmentCenter;
@@ -292,20 +293,28 @@
                                                   //识别成功
                                                   if ([test evaluateWithObject:elementText]) {
                                                       
-                                                      //停止扫描
-                                                      [self.session stopRunning];
-                                                      
-                                                      //播放音效
-                                                      NSURL *url=[[NSBundle mainBundle]URLForResource:@"scanSuccess.wav" withExtension:nil];
-                                                      SystemSoundID soundID=8787;
-                                                      AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &soundID);
-                                                      AudioServicesPlaySystemSound(soundID);
-                                                      
-                                                      //在屏幕上输入结果
-                                                      self->recognizedText = elementText;
-                                                      self->textLabel.text = self->recognizedText;
-                                                      
-                                                      NSLog(@"%@",self->recognizedText);
+                                                      //连续两次识别结果一致，则输出最终结果
+                                                      if ([self->recognizedText isEqualToString:elementText]) {
+                                                          
+                                                          //停止扫描
+                                                          [self.session stopRunning];
+                                                          
+                                                          //播放音效
+                                                          NSURL *url=[[NSBundle mainBundle]URLForResource:@"scanSuccess.wav" withExtension:nil];
+                                                          SystemSoundID soundID=8787;
+                                                          AudioServicesCreateSystemSoundID((__bridge CFURLRef)url, &soundID);
+                                                          AudioServicesPlaySystemSound(soundID);
+                                                          
+                                                          //在屏幕上输入结果
+                                                          self->textLabel.text = self->recognizedText;
+                                                          
+                                                          NSLog(@"%@",self->recognizedText);
+                                                      }else
+                                                      {
+                                                          //马上再识别一次，对比结果对比
+                                                          self->recognizedText = elementText;
+                                                          self->isInference = NO;
+                                                      }
                                                       return;
                                                   }
                                               }
@@ -313,8 +322,11 @@
                                       }
                                   }
                               }
-                              //继续识别
-                              self->isInference = NO;
+                              //延迟100毫秒再继续识别下一次，降低CPU功耗，省电‼️
+                              dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(100 * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
+                                  //继续识别
+                                  self->isInference = NO;
+                              });
                           }];
     }
 }
