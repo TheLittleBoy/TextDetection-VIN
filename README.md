@@ -8,3 +8,7 @@ iOS使用Firebase文字识别SDK，实现离线扫描VIN码，免费，并且效
 初始化需要用到GoogleService-Info.plist配置文件。‼️此项目仅仅演示离线识别功能，所以文件里边的key都是随便写的‼️
 
 更多详细信息请参考Firebase官网：https://firebase.google.cn/docs/ml-kit/ios/recognize-text
+
+效果图：
+
+![](https://github.com/TheLittleBoy/TextDetection-VIN/blob/master/image.jpg)
