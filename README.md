@@ -1,3 +1,7 @@
+飞桨OCR识别版本详见另外一个项目：https://github.com/TheLittleBoy/TextDetection-VIN2
+
+------
+
 # TextDetection-VIN
 iOS使用Firebase文字识别SDK，实现离线扫描VIN码，免费，并且效果极佳，速度贼快。
 
